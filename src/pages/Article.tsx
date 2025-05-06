@@ -229,16 +229,22 @@ const Article = () => {
     <div className="flex min-h-screen flex-col">
       <SEOHead 
         title={`${article.title} | Times Roman`}
-        description={articleDescription}
+        description={article.excerpt}
+        ogTitle={`${article.title} | Times Roman`}
+        ogDescription={article.excerpt}
         ogImage={article.imageUrl}
-        ogType="article"
+        ogUrl={currentUrl}
+        twitterCard="summary_large_image"
+        twitterSite="@timesroman"
+        twitterImage={article.imageUrl}
         canonical={currentUrl}
         articleMeta={{
           publishedTime: isoDate,
           author: article.author,
-          category: article.category
-        }}
-      />
+          section: article.category,
+          tags: article.tags
+  }}
+/>
       <ReadingProgressBar />
       <Navbar />
       
